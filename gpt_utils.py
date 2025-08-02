@@ -39,5 +39,5 @@ def generate_schedule(user_input: str) -> str:
     response = requests.post(url, headers=headers, json=payload)
     if response.status_code != 200:
         raise Exception(f"Ошибка API: {response.status_code} - {response.text}")
-
+    
     return response.json()["choices"][0]["message"]["content"].strip()
